@@ -76,25 +76,8 @@ public class MainActivity extends Activity {
 //			main_layout.setPadding(0, result, 0, 0);
 //		}
 		
-		mWebView.loadUrl(url);
-
-		// control javaScript and add html5 features
-		mWebView.setFocusable(true);
-		mWebView.setFocusableInTouchMode(true);
-		mWebView.getSettings().setJavaScriptEnabled(true);
-		mWebView.getSettings().setRenderPriority(RenderPriority.HIGH);
-		mWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-		mWebView.getSettings().setDomStorageEnabled(true);
-		mWebView.getSettings().setAppCacheEnabled(true);
-		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-		mWebView.getSettings().setDatabaseEnabled(true);
-		mWebView.getSettings().setDatabasePath(
-				this.getFilesDir().getPath() + this.getPackageName()
-						+ "/databases/");
-
-		// this force use chromeWebClient
-		mWebView.getSettings().setSupportMultipleWindows(true);
-
+		
+		webSettings();
 		mWebView.setWebViewClient(new WebViewClient() {
 
 			@Override
@@ -133,6 +116,30 @@ public class MainActivity extends Activity {
 		});
 
 	}
+	
+	public void webSettings(){
+		
+		mWebView.loadUrl(url);
+
+		// control javaScript and add html5 features
+		mWebView.setFocusable(true);
+		mWebView.setFocusableInTouchMode(true);
+		mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.getSettings().setRenderPriority(RenderPriority.HIGH);
+		mWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+		mWebView.getSettings().setDomStorageEnabled(true);
+		mWebView.getSettings().setAppCacheEnabled(true);
+		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+		mWebView.getSettings().setDatabaseEnabled(true);
+		mWebView.getSettings().setDatabasePath(
+				this.getFilesDir().getPath() + this.getPackageName()
+						+ "/databases/");
+
+		// this force use chromeWebClient
+		mWebView.getSettings().setSupportMultipleWindows(true);
+
+	}
+	
 
 	/**
 	 * To animate view slide out from top to bottom
@@ -147,6 +154,7 @@ public class MainActivity extends Activity {
 	// view.startAnimation(animate);
 	// view.setVisibility(View.GONE);
 	// }
+	
 
 	@Override
 	public boolean onKeyDown(final int keyCode, final KeyEvent event) {
